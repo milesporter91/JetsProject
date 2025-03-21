@@ -1,0 +1,5 @@
+F-22 Raptor, 1500, 1840, 150_000_000
+Dassault Rafale, 1188, 2300, 85_000_000
+Boeing C-17 Globemaster III, 515, 2400, 218_000_000
+Lockheed C-130 Hercules, 417, 2360, 40
+Airbus A320neo, 534, 3700, 110
