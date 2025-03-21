@@ -31,7 +31,11 @@ public class AirField {
 	public String toString() {
 		return "" + fleet;
 	}
-
+	
+	public void printJets() {
+		//TODO iterate through the list and print each jet
+		// 		then you can call this method in JetsApplication to "List Fleet"
+	}
 	public void loadJetsFromFile(String fileName) {
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jetdata.txt"))) {
 			fleet = new ArrayList<>();

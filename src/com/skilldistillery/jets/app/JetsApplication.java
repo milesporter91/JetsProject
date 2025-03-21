@@ -21,7 +21,6 @@ public class JetsApplication {
 		boolean keepGoing = true;
 		String userChoice;
 		airField = new AirField();
-		System.out.println(airField);
 		do {
 			displayUserMenu();
 			userChoice = scanner.nextLine();
@@ -32,19 +31,30 @@ public class JetsApplication {
 				break;
 				}
 			case "2": case "Fly": case "fly":
-				
+				break;
 			case "3": case "Fastest": case "fastest":
+				break;
 				
 			case "4": case "Longest": case "longest":
+				break;
 				
 			case "5": case "Load": case "load":
+				break;
 				
 			case "6": case "Dogfight": case "dogfight":
+				break;
 				
 			case "7": case "Add": case "add":
 				addJet();
+				break;
 				
 			case "8": case "Remove": case "remove":
+				break;
+				
+				default: {
+					System.out.println(userChoice + " is not a valid choice!");
+					break;
+				}
 				
 					
 				}
@@ -59,8 +69,6 @@ public class JetsApplication {
 }	
 
 	private void displayUserMenu() {
-		System.out.println("We can store your planes, show you what"
-				+ " we've got, or you can stick around for an air show!");
 		System.out.println("What would ya like to do?!");
 		System.out.println("1. List our current fleet");
 		System.out.println("2. Fly all jets");
