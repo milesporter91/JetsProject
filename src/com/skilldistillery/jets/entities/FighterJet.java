@@ -1,8 +1,7 @@
 package com.skilldistillery.jets.entities;
 
 public class FighterJet extends Jet implements CombatReady{
-	private int roundsPerMinute;
-	FighterJet(String model, double speed, int range, long price, int roundsPerMinute) {
+	public FighterJet(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
 	}
 
@@ -13,7 +12,7 @@ public class FighterJet extends Jet implements CombatReady{
 
 	@Override
 	public void fight() {
-		System.out.println("The " + getModel() + " can fire its weapons at up to " + roundsPerMinute + "rounds per minute!");
+	//TODO 	System.out.println("");
 	}
 
 }
