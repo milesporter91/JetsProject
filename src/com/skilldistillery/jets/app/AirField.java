@@ -59,7 +59,17 @@ public class AirField {
 							+ longestRangeJet.getSpeed() + " miles per hour, and costs $" + longestRangeJet.getPrice());
 	}
 	
-	public void flyJets() {
+	public void flyJet() {
+		Scanner scanner = new Scanner(System.in);
+		for (int i = 0; i < fleet.size(); i++) {
+			System.out.println((i+1) + ". " + fleet.get(i).getModel());
+		}
+		System.out.println("Which jet would you like to see fly?");
+		int indexChoice = scanner.nextInt();
+		fleet.get(indexChoice - 1).fly();
+	}
+	
+	public void flyAllJets() {
 		for (int i = 0; i < fleet.size(); i++) {
 			fleet.get(i).fly();
 		}

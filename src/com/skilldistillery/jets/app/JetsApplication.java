@@ -6,8 +6,6 @@ public class JetsApplication {
 	private AirField airField = new AirField();
 	private static Scanner scanner;
 
-	// NO Jet collection in app class
-	// only an Airfield
 	public static void main(String[] args) {
 		scanner = new Scanner(System.in);
 		System.out.println("Welcome to The Skill Distillery Airport!");
@@ -25,16 +23,25 @@ public class JetsApplication {
 				displayUserMenu();
 				userChoice = scanner.nextLine();
 			switch (userChoice) {
-			case "1":
+			case "0":
 			case "List":
 			case "list": {
 				airField.printJets();
 				break;
 			}
+			case "1": 
+			case "fly one":
+			case "Fly one":
+			case "one":
+			case "One":
+				airField.flyJet();
+				break;
 			case "2":
-			case "Fly":
-			case "fly":
-				airField.flyJets();
+			case "Fly all":
+			case "fly all":
+			case "All":
+			case "all":
+				airField.flyAllJets();
 				break;
 			case "3":
 			case "Fastest":
@@ -71,23 +78,23 @@ public class JetsApplication {
 			case "remove":
 				airField.removeJet();
 				break;
-			case "0":
 			case "Quit":
 			case "quit":
 				System.out.println("Have a great day! Stop by any time!");
 				keepGoing = false;
 				break;
-			default: {
+			default: 
 					System.out.println(userChoice + " is not a valid choice!");
 					break;
-				} 
+				
 			}
 		} while (keepGoing);
 	}
 
 	private void displayUserMenu() {
 		System.out.println();
-		System.out.println("1. List our current fleet");
+		System.out.println("0. List our current fleet");
+		System.out.println("1. Choose a jet to do a fly-by");
 		System.out.println("2. Fly all jets");
 		System.out.println("3. View fastest jet");
 		System.out.println("4. View jet with longest range");
@@ -96,7 +103,7 @@ public class JetsApplication {
 		System.out.println("7. Watch sky divers");
 		System.out.println("8. Add a jet to fleet");
 		System.out.println("9. Remove a jet from fleet");
-		System.out.println("0. Quit");
+		System.out.println("Quit");
 		System.out.println("What would ya like to do?!");
 	}
 
