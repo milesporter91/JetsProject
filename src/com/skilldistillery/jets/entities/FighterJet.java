@@ -7,7 +7,10 @@ public class FighterJet extends Jet implements CombatReady{
 
 	@Override
 	public void fly() {
-		System.out.println("The " + getModel() + "is zooming by at " + getSpeed() + " miles per hour!");
+		System.out.println("The " + getModel() + "is zooming by at " + getSpeed()
+						+ " miles per hour! With a max range of " + getRange() 
+						+ " miles, it can fly at this speed for " + ( getRange() / getSpeed() ) 
+						+ " miles! It costs $" + getPrice() + ".");
 	}
 
 	@Override

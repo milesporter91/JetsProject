@@ -42,7 +42,8 @@ public class AirField {
 			
 		}
 		System.out.println(fastestJet.getModel() + " is the fastest jet in our fleet, with a top speed of "
-						+ fastestJet.getSpeed() + " miles per hour!");
+						+ fastestJet.getSpeed() + " miles per hour! It has a range of " + fastestJet.getRange() 
+						+ " miles and costs $" + fastestJet.getPrice() + ".");
 	}
 
 	public void findLongestRange() {
@@ -54,7 +55,8 @@ public class AirField {
 		}
 		System.out.println("The jet with the longest range in our fleet is " 
 							+ longestRangeJet.getModel() + " with a max range of " 
-							+ longestRangeJet.getRange() + " miles!");
+							+ longestRangeJet.getRange() + " miles! It has a top speed of " 
+							+ longestRangeJet.getSpeed() + " miles per hour, and costs $" + longestRangeJet.getPrice());
 	}
 	
 	public void flyJets() {
@@ -118,7 +120,6 @@ public class AirField {
 			}
 		}
 	}
-	
 	
 	public void jumpRun() {
 		for (int i = 0; i < fleet.size(); i++) {

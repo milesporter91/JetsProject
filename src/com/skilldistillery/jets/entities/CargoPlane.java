@@ -10,7 +10,9 @@ public class CargoPlane extends Jet implements CargoCarrier {
 	@Override
 	public void fly() {
 		System.out.println("The " + getModel() + " is flying by with its cargo at "
-				+ getSpeed() + " miles per hour!");
+						+ getSpeed() + " miles per hour! With a max range of " 
+						+ getRange() + ", it can fly at this speed for " 
+						+ ( getRange() / getSpeed() ) + " miles! It costs $" + getPrice() + ".");
 
 	}
 
