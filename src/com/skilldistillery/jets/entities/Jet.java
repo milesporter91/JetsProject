@@ -5,11 +5,9 @@ public abstract class Jet {
 	private double speed;
 	private int range;
 	private long price;
-	private Pilot pilot;
-
 
 	public abstract void fly();
-	
+
 	public Jet(String model, double speed, int range, long price) {
 		super();
 		this.model = model;
@@ -49,14 +47,6 @@ public abstract class Jet {
 
 	public void setPrice(long price) {
 		this.price = price;
-	}
-
-	public Pilot getPilot() {
-		return pilot;
-	}
-
-	public void setPilot(Pilot pilot) {
-		this.pilot = pilot;
 	}
 
 }

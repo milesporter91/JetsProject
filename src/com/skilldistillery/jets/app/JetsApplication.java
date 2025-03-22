@@ -16,12 +16,50 @@ public class JetsApplication {
 	}
 
 	private void launch() {
+		airField = new AirField();
+		displayUserMenu();
+	}
+
+	private void flyJet() {
+		for (int i = 0; i < airField.getFleet().size(); i++) {
+			System.out.println((i + 1) + ". " + airField.getFleet().get(i).getModel());
+		}
+		System.out.println("Which jet would you like to see fly?");
+		int indexChoice = scanner.nextInt();
+		scanner.nextLine();
+		indexChoice--;
+		airField.flyJet(indexChoice);
+	}
+
+	private void removeJet() {
+		for (int i = 0; i < airField.getFleet().size(); i++) {
+			System.out.println((i + 1) + ". " + airField.getFleet().get(i).getModel());
+		}
+		System.out.println("Which jet would you like to remove?");
+		int indexChoice = scanner.nextInt();
+		scanner.nextLine();
+		indexChoice--;
+		airField.removeJet(indexChoice);
+	}
+
+	private void displayUserMenu() {
 		boolean keepGoing = true;
 		String userChoice;
-		airField = new AirField();
-			do {
-				displayUserMenu();
-				userChoice = scanner.nextLine();
+		do {
+			System.out.println();
+			System.out.println("0. List our current fleet");
+			System.out.println("1. Choose a jet to do a fly-by");
+			System.out.println("2. Fly all jets");
+			System.out.println("3. View fastest jet");
+			System.out.println("4. View jet with longest range");
+			System.out.println("5. Load all cargo jets");
+			System.out.println("6. Dog Fight!");
+			System.out.println("7. Watch sky divers");
+			System.out.println("8. Add a jet to fleet");
+			System.out.println("9. Remove a jet from fleet");
+			System.out.println("Quit");
+			System.out.println("What would ya like to do?!");
+			userChoice = scanner.nextLine();
 			switch (userChoice) {
 			case "0":
 			case "List":
@@ -29,7 +67,7 @@ public class JetsApplication {
 				airField.printJets();
 				break;
 			}
-			case "1": 
+			case "1":
 			case "fly one":
 			case "Fly one":
 			case "one":
@@ -83,48 +121,13 @@ public class JetsApplication {
 				System.out.println("Have a great day! Stop by any time!");
 				keepGoing = false;
 				break;
-			default: 
-					System.out.println(userChoice + " is not a valid choice!");
-					break;
-				
+			default:
+				System.out.println(userChoice + " is not a valid choice!");
+				break;
+
 			}
 		} while (keepGoing);
-	}
 
-	private void flyJet() {
-		for (int i = 0; i < airField.getFleet().size(); i++) {
-			System.out.println((i+1) + ". " + airField.getFleet().get(i).getModel());
-		}
-		System.out.println("Which jet would you like to see fly?");
-		int indexChoice = scanner.nextInt();
-		scanner.nextLine();
-		indexChoice--;
-		airField.flyJet(indexChoice);
-	}
-	private void removeJet() {
-		for (int i = 0; i < airField.getFleet().size(); i++) {
-			System.out.println((i+1) + ". " + airField.getFleet().get(i).getModel());
-		}
-		System.out.println("Which jet would you like to remove?");
-		int indexChoice = scanner.nextInt();
-		scanner.nextLine();
-		indexChoice--;
-		airField.removeJet(indexChoice);
-	}
-	private void displayUserMenu() {
-		System.out.println();
-		System.out.println("0. List our current fleet");
-		System.out.println("1. Choose a jet to do a fly-by");
-		System.out.println("2. Fly all jets");
-		System.out.println("3. View fastest jet");
-		System.out.println("4. View jet with longest range");
-		System.out.println("5. Load all cargo jets");
-		System.out.println("6. Dog Fight!");
-		System.out.println("7. Watch sky divers");
-		System.out.println("8. Add a jet to fleet");
-		System.out.println("9. Remove a jet from fleet");
-		System.out.println("Quit");
-		System.out.println("What would ya like to do?!");
 	}
 
 	private void addJet() {

@@ -1,13 +1,15 @@
 package com.skilldistillery.jets.entities;
 
-public class FighterJet extends Jet implements CombatReady{
+public class FighterJet extends Jet implements CombatReady {
 	public FighterJet(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
 	}
 
 	@Override
 	public void fly() {
-		System.out.printf("The %s is doing a jump run at %.2f miles per hour! With a max range of %d, it can fly at this speed for %.2f hours! It costs $%d\n", getModel(), getSpeed(), getRange(), ( getRange() / getSpeed() ), getPrice());
+		System.out.printf(
+				"The %s is zooming by at %.2f miles per hour! With a max range of %d, it can fly at this speed for %.2f hours! It costs $%d\n",
+				getModel(), getSpeed(), getRange(), (getRange() / getSpeed()), getPrice());
 	}
 
 	@Override
