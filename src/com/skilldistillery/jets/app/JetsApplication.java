@@ -131,6 +131,9 @@ public class JetsApplication {
 	}
 
 	private void addJet() {
+		System.out.println("What is the function of the jet you will be storing here?");
+		System.out.println("1. Fighter \t2. Cargo \t3.Jump");
+		String jetType = scanner.nextLine();
 		System.out.println("What model of jet will you be storing here?");
 		String model = scanner.nextLine();
 		System.out.println("What is the speed of your " + model + "?");
@@ -140,9 +143,6 @@ public class JetsApplication {
 		System.out.println("What is the value of your " + model + "?");
 		long price = scanner.nextLong();
 		scanner.nextLine();
-		System.out.println("What is the function of the jet you will be storing here?");
-		System.out.println("1. Fighter \t2. Cargo \t3.Jump");
-		String jetType = scanner.nextLine();
 		switch (jetType) {
 		case "1":
 		case "F":
