@@ -5,12 +5,11 @@ public abstract class Jet {
 	private double speed;
 	private int range;
 	private long price;
+	private Pilot pilot;
 
-	public void fly() {
-		System.out.println("Announcer:\n\tThe " + model + " is flying by at " + speed + "mph! +"
-				+ "\n\tIt has a max range of " + range + " miles and costs $" + price + ".");
-	}
 
+	public abstract void fly();
+	
 	public Jet(String model, double speed, int range, long price) {
 		super();
 		this.model = model;
@@ -21,7 +20,7 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return model + ": Speed: " + speed + ", Range: " + range + ", Price: " + price + ".";
+		return model + ": Speed: " + speed + ", Range: " + range + ", Price: " + price;
 	}
 
 	public String getModel() {
@@ -50,6 +49,14 @@ public abstract class Jet {
 
 	public void setPrice(long price) {
 		this.price = price;
+	}
+
+	public Pilot getPilot() {
+		return pilot;
+	}
+
+	public void setPilot(Pilot pilot) {
+		this.pilot = pilot;
 	}
 
 }

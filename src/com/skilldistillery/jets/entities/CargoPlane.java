@@ -4,16 +4,11 @@ public class CargoPlane extends Jet implements CargoCarrier {
 
 	public CargoPlane(String model, double speed, int range, long price) {
 		super(model, speed, range, price);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void fly() {
-		System.out.println("The " + getModel() + " is flying by with its cargo at "
-						+ getSpeed() + " miles per hour! With a max range of " 
-						+ getRange() + ", it can fly at this speed for " 
-						+ ( getRange() / getSpeed() ) + " miles! It costs $" + getPrice() + ".");
-
+		System.out.printf("The %s is doing a jump run at %.2f miles per hour! With a max range of %d, it can fly at this speed for %.2f hours! It costs $%d\n", getModel(), getSpeed(), getRange(), ( getRange() / getSpeed() ), getPrice());
 	}
 
 	@Override

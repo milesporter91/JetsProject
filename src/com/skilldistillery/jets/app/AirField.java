@@ -5,19 +5,22 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 import com.skilldistillery.jets.entities.CargoPlane;
 import com.skilldistillery.jets.entities.FighterJet;
 import com.skilldistillery.jets.entities.Jet;
 import com.skilldistillery.jets.entities.JumpJet;
+//import com.skilldistillery.jets.entities.Pilot;
 
 public class AirField {
 
+//	private List<Pilot> pilots;
+	
 	private List<Jet> fleet;
 
 	public AirField() {
 		loadJetsFromFile("jetData.txt");
+//		loadPilotsFromFile("pilots.txt");
 	}
 
 	public List<Jet> getFleet() {
@@ -33,7 +36,32 @@ public class AirField {
 		return "" + fleet;
 	}
 	
-	public void findFastestJet() {
+//	public void hirePilot(String name) {
+//		Pilot pilot = new Pilot(name);
+//		pilots.add(pilot);
+//	}
+
+//	public void loadPilotsFromFile(String fileName) {
+//		try (BufferedReader bufIn = new BufferedReader(new FileReader("pilots.txt"))) {
+//			pilots = new ArrayList<>();
+//			String line;
+//			while ((line = bufIn.readLine()) != null) {
+//				Pilot j;
+//				j = new Pilot(line);
+//				pilots.add(j);
+//			}
+//			System.out.println(pilots);
+//			for (int i = 0; i < pilots.size(); i++) {
+//					if (fleet.get(i).getPilot() == null) {
+//						fleet.get(i).setPilot(pilots.get(i)); 
+//					}
+//				}
+//		} catch (IOException e) {
+//			System.err.println(e);
+//		}
+//	}
+	
+ 	public void findFastestJet() {
 		Jet fastestJet = fleet.get(0);
 		for (int i = 0; i < fleet.size(); i++) {
 			if (fleet.get(i).getSpeed() > fastestJet.getSpeed()) {
@@ -59,14 +87,13 @@ public class AirField {
 							+ longestRangeJet.getSpeed() + " miles per hour, and costs $" + longestRangeJet.getPrice());
 	}
 	
-	public void flyJet() {
-		Scanner scanner = new Scanner(System.in);
-		for (int i = 0; i < fleet.size(); i++) {
-			System.out.println((i+1) + ". " + fleet.get(i).getModel());
-		}
-		System.out.println("Which jet would you like to see fly?");
-		int indexChoice = scanner.nextInt();
-		fleet.get(indexChoice - 1).fly();
+	public void flyJet(int indexChoice) {
+	 if (fleet != null && indexChoice >= 0 && indexChoice < fleet.size()) {
+		 fleet.get(indexChoice).fly();
+	 } else {
+		 System.out.println("That is not a valid choice.");
+	 }
+		 
 	}
 	
 	public void flyAllJets() {
@@ -77,7 +104,8 @@ public class AirField {
 
 	public void printJets() {
 		for (int i = 0; i < fleet.size(); i++) {
-			System.out.println("Model: " + fleet.get(i).getModel() + "\t Speed: " 
+				
+					System.out.println("Model: " + fleet.get(i).getModel() + "\t Speed: " 
 							+ fleet.get(i).getSpeed() + "mph\t Range: " + fleet.get(i).getRange() 
 								+ " miles\t Price: " + fleet.get(i).getPrice());
 		}
@@ -139,19 +167,12 @@ public class AirField {
 		}
 	}
 	
-	public void removeJet() {
-		Scanner scanner = new Scanner(System.in);
-		for (int i = 0; i < fleet.size(); i++) {
-			System.out.println((i+1) + ". " + fleet.get(i).getModel());
-		}
-		System.out.println("Which jet would you like to remove?");
-		int indexChoice = scanner.nextInt();
-		fleet.remove(indexChoice - 1);
-		
-		// TODO Ask why scanner.close() breaks my removeJet option
-		// TODO prevent IndexOutOfBoundsException for deleting all jets, 
-		//		selecting an index out of bounds, etc.
-		
+	public void removeJet(int indexChoice) {
+		 if (fleet != null && indexChoice >= 0 && indexChoice < fleet.size()) {
+			 fleet.remove(indexChoice);
+		 } else {
+			 System.out.println("There is no jet there!");
+		 }
 	}
 	
 	public void addFighterJet(String model, double speed, int range, long price) {
@@ -168,5 +189,14 @@ public class AirField {
 		Jet j = new JumpJet(model, speed, range, price);
 		fleet.add(j);
 	}
+
 	
+//	public List<Pilot> getPilots() {
+//		return pilots;
+//	}
+
+//	public void setPilots(List<Pilot> pilots) {
+//		this.pilots = pilots;
+//	}
+//	
 }

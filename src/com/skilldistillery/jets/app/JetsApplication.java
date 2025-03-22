@@ -34,7 +34,7 @@ public class JetsApplication {
 			case "Fly one":
 			case "one":
 			case "One":
-				airField.flyJet();
+				flyJet();
 				break;
 			case "2":
 			case "Fly all":
@@ -76,7 +76,7 @@ public class JetsApplication {
 			case "9":
 			case "Remove":
 			case "remove":
-				airField.removeJet();
+				removeJet();
 				break;
 			case "Quit":
 			case "quit":
@@ -91,6 +91,26 @@ public class JetsApplication {
 		} while (keepGoing);
 	}
 
+	private void flyJet() {
+		for (int i = 0; i < airField.getFleet().size(); i++) {
+			System.out.println((i+1) + ". " + airField.getFleet().get(i).getModel());
+		}
+		System.out.println("Which jet would you like to see fly?");
+		int indexChoice = scanner.nextInt();
+		scanner.nextLine();
+		indexChoice--;
+		airField.flyJet(indexChoice);
+	}
+	private void removeJet() {
+		for (int i = 0; i < airField.getFleet().size(); i++) {
+			System.out.println((i+1) + ". " + airField.getFleet().get(i).getModel());
+		}
+		System.out.println("Which jet would you like to remove?");
+		int indexChoice = scanner.nextInt();
+		scanner.nextLine();
+		indexChoice--;
+		airField.removeJet(indexChoice);
+	}
 	private void displayUserMenu() {
 		System.out.println();
 		System.out.println("0. List our current fleet");
