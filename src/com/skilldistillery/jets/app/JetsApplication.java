@@ -21,9 +21,9 @@ public class JetsApplication {
 		boolean keepGoing = true;
 		String userChoice;
 		airField = new AirField();
-			displayUserMenu();
-			userChoice = scanner.nextLine();
 			do {
+				displayUserMenu();
+				userChoice = scanner.nextLine();
 			switch (userChoice) {
 			case "1":
 			case "List":

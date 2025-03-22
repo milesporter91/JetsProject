@@ -137,6 +137,10 @@ public class AirField {
 		int indexChoice = scanner.nextInt();
 		fleet.remove(indexChoice - 1);
 		
+		// TODO Ask why scanner.close() breaks my removeJet option
+		// TODO prevent IndexOutOfBoundsException for deleting all jets, 
+		//		selecting an index out of bounds, etc.
+		
 	}
 	
 	public void addFighterJet(String model, double speed, int range, long price) {
