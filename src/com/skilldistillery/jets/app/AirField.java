@@ -62,7 +62,8 @@ public class AirField {
 //	}
 	
  	public void findFastestJet() {
-		Jet fastestJet = fleet.get(0);
+		if (fleet.size() != 0) {
+			Jet fastestJet = fleet.get(0);
 		for (int i = 0; i < fleet.size(); i++) {
 			if (fleet.get(i).getSpeed() > fastestJet.getSpeed()) {
 				fastestJet = fleet.get(i);
@@ -72,19 +73,22 @@ public class AirField {
 		System.out.println(fastestJet.getModel() + " is the fastest jet in our fleet, with a top speed of "
 						+ fastestJet.getSpeed() + " miles per hour! It has a range of " + fastestJet.getRange() 
 						+ " miles and costs $" + fastestJet.getPrice() + ".");
+		}
 	}
 
 	public void findLongestRange() {
-		Jet longestRangeJet = fleet.get(0);
+		if (fleet.size() != 0) {
+			Jet longestRangeJet = fleet.get(0);
 		for (int i = 0; i < fleet.size(); i++) {
 			if (fleet.get(i).getRange() > longestRangeJet.getRange()) {
 				longestRangeJet = fleet.get(i);
 			}
 		}
-		System.out.println("The jet with the longest range in our fleet is " 
+		System.out.println("The jet with the longest range in our fleet is the " 
 							+ longestRangeJet.getModel() + " with a max range of " 
 							+ longestRangeJet.getRange() + " miles! It has a top speed of " 
 							+ longestRangeJet.getSpeed() + " miles per hour, and costs $" + longestRangeJet.getPrice());
+		}
 	}
 	
 	public void flyJet(int indexChoice) {
