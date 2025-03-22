@@ -9,7 +9,8 @@ public class JumpJet extends Jet implements JumpReady{
 
 	@Override
 	public void fly() {
-		// TODO Auto-generated method stub
+		System.out.println("The " + getModel() + " is doing a jump run at " 
+						+ getSpeed() + " miles per hour!");
 
 	}
 

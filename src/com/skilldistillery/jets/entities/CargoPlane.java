@@ -9,7 +9,8 @@ public class CargoPlane extends Jet implements CargoCarrier {
 
 	@Override
 	public void fly() {
-		// TODO Auto-generated method stub
+		System.out.println("The " + getModel() + " is flying by with its cargo at "
+				+ getSpeed() + " miles per hour!");
 
 	}
 

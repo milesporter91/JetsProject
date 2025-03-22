@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import com.skilldistillery.jets.entities.CargoPlane;
 import com.skilldistillery.jets.entities.FighterJet;
@@ -32,10 +33,44 @@ public class AirField {
 		return "" + fleet;
 	}
 	
-	public void printJets() {
-		//TODO iterate through the list and print each jet
-		// 		then you can call this method in JetsApplication to "List Fleet"
+	public void findFastestJet() {
+		Jet fastestJet = fleet.get(0);
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i).getSpeed() > fastestJet.getSpeed()) {
+				fastestJet = fleet.get(i);
+			}
+			
+		}
+		System.out.println(fastestJet.getModel() + " is the fastest jet in our fleet, with a top speed of "
+						+ fastestJet.getSpeed() + " miles per hour!");
 	}
+
+	public void findLongestRange() {
+		Jet longestRangeJet = fleet.get(0);
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i).getRange() > longestRangeJet.getRange()) {
+				longestRangeJet = fleet.get(i);
+			}
+		}
+		System.out.println("The jet with the longest range in our fleet is " 
+							+ longestRangeJet.getModel() + " with a max range of " 
+							+ longestRangeJet.getRange() + " miles!");
+	}
+	
+	public void flyJets() {
+		for (int i = 0; i < fleet.size(); i++) {
+			fleet.get(i).fly();
+		}
+	}
+
+	public void printJets() {
+		for (int i = 0; i < fleet.size(); i++) {
+			System.out.println("Model: " + fleet.get(i).getModel() + "\t Speed: " 
+							+ fleet.get(i).getSpeed() + "mph\t Range: " + fleet.get(i).getRange() 
+								+ " miles\t Price: " + fleet.get(i).getPrice());
+		}
+	}
+	
 	public void loadJetsFromFile(String fileName) {
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jetdata.txt"))) {
 			fleet = new ArrayList<>();
@@ -66,6 +101,42 @@ public class AirField {
 		} catch (IOException e) {
 			System.err.println(e);
 		}
+	}
+	
+	public void loadCargoPlanes() {
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i) instanceof CargoPlane) {
+				( (CargoPlane)fleet.get(i) ).loadCargo();
+			}
+		}
+	}
+
+	public void dogFight() {
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i) instanceof FighterJet) {
+				( (FighterJet)fleet.get(i) ).fight();
+			}
+		}
+	}
+	
+	
+	public void jumpRun() {
+		for (int i = 0; i < fleet.size(); i++) {
+			if (fleet.get(i) instanceof JumpJet) {
+				( (JumpJet)fleet.get(i) ).jumpRun();
+			}
+		}
+	}
+	
+	public void removeJet() {
+		Scanner scanner = new Scanner(System.in);
+		for (int i = 0; i < fleet.size(); i++) {
+			System.out.println((i+1) + ". " + fleet.get(i).getModel());
+		}
+		System.out.println("Which jet would you like to remove?");
+		int indexChoice = scanner.nextInt();
+		fleet.remove(indexChoice - 1);
+		
 	}
 	
 	public void addFighterJet(String model, double speed, int range, long price) {
