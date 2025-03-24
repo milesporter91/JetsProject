@@ -116,13 +116,6 @@ public class AirField {
 		}
 	}
 
-	public void loadCargoPlanes() {
-		for (int i = 0; i < fleet.size(); i++) {
-			if (fleet.get(i) instanceof CargoPlane) {
-				((CargoPlane) fleet.get(i)).loadCargo();
-			}
-		}
-	}
 
 	public void dogFight() {
 		for (int i = 0; i < fleet.size(); i++) {

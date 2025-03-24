@@ -6,7 +6,11 @@ public abstract class Jet {
 	private int range;
 	private long price;
 
-	public abstract void fly();
+	public  void fly() {
+		System.out.printf(
+				"The %s is flying by at %.2f miles per hour! With a max range of %d miles, it can fly at this speed for %.2f hours before running out of fuel! It costs $%d\n",
+				getModel(), getSpeed(), getRange(), (getRange() / getSpeed()), getPrice());
+	}
 
 	public Jet(String model, double speed, int range, long price) {
 		super();

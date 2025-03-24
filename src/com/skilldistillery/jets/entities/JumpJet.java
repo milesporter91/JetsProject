@@ -10,7 +10,7 @@ public class JumpJet extends Jet implements JumpReady {
 	@Override
 	public void fly() {
 		System.out.printf(
-				"The %s is doing a jump run at %.2f miles per hour! With a max range of %d, it can fly at this speed for %.2f hours! It costs $%d\n",
+				"The %s is doing a jump run at %.2f miles per hour! With a max range of %d miles, it can fly at this speed for %.2f hours before running out of fuel! It costs $%d\n",
 				getModel(), getSpeed(), getRange(), (getRange() / getSpeed()), getPrice());
 
 	}

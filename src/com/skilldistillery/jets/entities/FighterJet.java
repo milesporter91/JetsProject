@@ -8,7 +8,7 @@ public class FighterJet extends Jet implements CombatReady {
 	@Override
 	public void fly() {
 		System.out.printf(
-				"The %s is zooming by at %.2f miles per hour! With a max range of %d, it can fly at this speed for %.2f hours! It costs $%d\n",
+				"The %s is zooming by at %.2f miles per hour! With a max range of %d miles, it can fly at this speed for %.2f hours before running out of fuel! It costs $%d\n",
 				getModel(), getSpeed(), getRange(), (getRange() / getSpeed()), getPrice());
 	}
 
